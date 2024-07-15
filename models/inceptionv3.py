@@ -245,7 +245,11 @@ class InceptionE(nn.Module):
 
 class InceptionV3(nn.Module):
 
+<<<<<<< HEAD
     def __init__(self, num_classes=100):
+=======
+    def __init__(self, num_classes=952):
+>>>>>>> d7457bb (update train and utils)
         super().__init__()
         self.Conv2d_1a_3x3 = BasicConv2d(3, 32, kernel_size=3, padding=1)
         self.Conv2d_2a_3x3 = BasicConv2d(32, 32, kernel_size=3, padding=1)

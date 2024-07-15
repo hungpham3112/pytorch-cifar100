@@ -5,12 +5,23 @@ author baiyu
 import os
 import sys
 import pickle
+<<<<<<< HEAD
 
 from skimage import io
 import matplotlib.pyplot as plt
 import numpy
 import torch
 from torch.utils.data import Dataset
+=======
+import glob
+from PIL import Image
+
+import os
+import numpy
+import torch
+from torch.utils.data import Dataset
+from torchvision.io import read_image
+>>>>>>> d7457bb (update train and utils)
 
 class CIFAR100Train(Dataset):
     """cifar100 test dataset, derived from
@@ -61,3 +72,33 @@ class CIFAR100Test(Dataset):
             image = self.transform(image)
         return label, image
 
+<<<<<<< HEAD
+=======
+
+class CustomImageDataset(Dataset):
+    """Custom Dataset for single-channel images."""
+    
+    def __init__(self, path, transform=None):
+        self.image_paths = glob.glob(os.path.join(path, "**/*.png"), recursive=True)
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.image_paths)
+
+    def __getitem__(self, idx):
+        image_path = self.image_paths[idx]
+        # Load image as tensor
+        image = read_image(image_path)  # This reads as a tensor with shape [C, H, W]
+
+        # Ensure image is single-channel
+        if image.size(0) != 1:
+            raise ValueError(f"Expected single-channel image, got {image.size(0)} channels.")
+        
+        # Extract label from the path
+        label = int(os.path.basename(os.path.dirname(image_path)))
+
+        if self.transform:
+            image = self.transform(image)
+
+        return image, label
+>>>>>>> d7457bb (update train and utils)

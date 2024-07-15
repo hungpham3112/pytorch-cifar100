@@ -1,0 +1,1008 @@
+SEResNet(
+  (pre): Sequential(
+    (0): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (stage1): Sequential(
+    (0): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=64, out_features=4, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=4, out_features=64, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (1): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=64, out_features=4, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=4, out_features=64, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (2): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=64, out_features=4, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=4, out_features=64, bias=True)
+        (3): Sigmoid()
+      )
+    )
+  )
+  (stage2): Sequential(
+    (0): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=128, out_features=8, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=8, out_features=128, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (1): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=128, out_features=8, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=8, out_features=128, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (2): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=128, out_features=8, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=8, out_features=128, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (3): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=128, out_features=8, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=8, out_features=128, bias=True)
+        (3): Sigmoid()
+      )
+    )
+  )
+  (stage3): Sequential(
+    (0): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (1): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (2): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (3): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (4): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (5): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=256, out_features=16, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=16, out_features=256, bias=True)
+        (3): Sigmoid()
+      )
+    )
+  )
+  (stage4): Sequential(
+    (0): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2))
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=512, out_features=32, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=32, out_features=512, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (1): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=512, out_features=32, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=32, out_features=512, bias=True)
+        (3): Sigmoid()
+      )
+    )
+    (2): BasicResidualSEBlock(
+      (residual): Sequential(
+        (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU(inplace=True)
+      )
+      (shortcut): Sequential()
+      (squeeze): AdaptiveAvgPool2d(output_size=1)
+      (excitation): Sequential(
+        (0): Linear(in_features=512, out_features=32, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=32, out_features=512, bias=True)
+        (3): Sigmoid()
+      )
+    )
+  )
+  (linear): Linear(in_features=512, out_features=952, bias=True)
+)
+
+Evaluating:   0%|          | 0/687 [00:00<?, ?batch/s]
+Evaluating:   0%|          | 1/687 [00:00<08:52,  1.29batch/s]
+Evaluating:   0%|          | 2/687 [00:00<04:28,  2.55batch/s]
+Evaluating:   0%|          | 3/687 [00:01<03:10,  3.59batch/s]
+Evaluating:   1%|          | 4/687 [00:01<02:27,  4.63batch/s]
+Evaluating:   1%|          | 5/687 [00:01<02:03,  5.51batch/s]
+Evaluating:   1%|          | 6/687 [00:01<01:49,  6.25batch/s]
+Evaluating:   1%|          | 7/687 [00:01<01:40,  6.78batch/s]
+Evaluating:   1%|          | 8/687 [00:01<01:34,  7.20batch/s]
+Evaluating:   1%|▏         | 9/687 [00:01<01:29,  7.54batch/s]
+Evaluating:   1%|▏         | 10/687 [00:01<01:27,  7.74batch/s]
+Evaluating:   2%|▏         | 11/687 [00:02<01:25,  7.86batch/s]
+Evaluating:   2%|▏         | 12/687 [00:02<01:25,  7.91batch/s]
+Evaluating:   2%|▏         | 13/687 [00:02<01:24,  8.00batch/s]
+Evaluating:   2%|▏         | 14/687 [00:02<01:22,  8.19batch/s]
+Evaluating:   2%|▏         | 15/687 [00:02<01:22,  8.18batch/s]
+Evaluating:   2%|▏         | 16/687 [00:02<01:21,  8.23batch/s]
+Evaluating:   2%|▏         | 17/687 [00:02<01:21,  8.23batch/s]
+Evaluating:   3%|▎         | 18/687 [00:02<01:20,  8.30batch/s]
+Evaluating:   3%|▎         | 19/687 [00:02<01:20,  8.35batch/s]
+Evaluating:   3%|▎         | 20/687 [00:03<01:20,  8.30batch/s]
+Evaluating:   3%|▎         | 21/687 [00:03<01:19,  8.35batch/s]
+Evaluating:   3%|▎         | 22/687 [00:03<01:19,  8.38batch/s]
+Evaluating:   3%|▎         | 23/687 [00:03<01:19,  8.39batch/s]
+Evaluating:   3%|▎         | 24/687 [00:03<01:18,  8.44batch/s]
+Evaluating:   4%|▎         | 25/687 [00:03<01:18,  8.40batch/s]
+Evaluating:   4%|▍         | 26/687 [00:03<01:19,  8.33batch/s]
+Evaluating:   4%|▍         | 27/687 [00:03<01:20,  8.24batch/s]
+Evaluating:   4%|▍         | 28/687 [00:04<01:19,  8.29batch/s]
+Evaluating:   4%|▍         | 29/687 [00:04<01:19,  8.30batch/s]
+Evaluating:   4%|▍         | 30/687 [00:04<01:19,  8.28batch/s]
+Evaluating:   5%|▍         | 31/687 [00:04<01:19,  8.30batch/s]
+Evaluating:   5%|▍         | 32/687 [00:04<01:19,  8.25batch/s]
+Evaluating:   5%|▍         | 33/687 [00:04<01:19,  8.26batch/s]
+Evaluating:   5%|▍         | 34/687 [00:04<01:19,  8.22batch/s]
+Evaluating:   5%|▌         | 35/687 [00:04<01:18,  8.26batch/s]
+Evaluating:   5%|▌         | 36/687 [00:05<01:18,  8.30batch/s]
+Evaluating:   5%|▌         | 37/687 [00:05<01:17,  8.37batch/s]
+Evaluating:   6%|▌         | 38/687 [00:05<01:18,  8.31batch/s]
+Evaluating:   6%|▌         | 39/687 [00:05<01:18,  8.25batch/s]
+Evaluating:   6%|▌         | 40/687 [00:05<01:17,  8.33batch/s]
+Evaluating:   6%|▌         | 41/687 [00:05<01:17,  8.32batch/s]
+Evaluating:   6%|▌         | 42/687 [00:05<01:17,  8.29batch/s]
+Evaluating:   6%|▋         | 43/687 [00:05<01:17,  8.30batch/s]
+Evaluating:   6%|▋         | 44/687 [00:05<01:17,  8.34batch/s]
+Evaluating:   7%|▋         | 45/687 [00:06<01:18,  8.22batch/s]
+Evaluating:   7%|▋         | 46/687 [00:06<01:17,  8.27batch/s]
+Evaluating:   7%|▋         | 47/687 [00:06<01:17,  8.26batch/s]
+Evaluating:   7%|▋         | 48/687 [00:06<01:17,  8.30batch/s]
+Evaluating:   7%|▋         | 49/687 [00:06<01:16,  8.29batch/s]
+Evaluating:   7%|▋         | 50/687 [00:06<01:16,  8.30batch/s]
+Evaluating:   7%|▋         | 51/687 [00:06<01:16,  8.30batch/s]
+Evaluating:   8%|▊         | 52/687 [00:06<01:16,  8.33batch/s]
+Evaluating:   8%|▊         | 53/687 [00:07<01:16,  8.33batch/s]
+Evaluating:   8%|▊         | 54/687 [00:07<01:16,  8.30batch/s]
+Evaluating:   8%|▊         | 55/687 [00:07<01:15,  8.39batch/s]
+Evaluating:   8%|▊         | 56/687 [00:07<01:15,  8.38batch/s]
+Evaluating:   8%|▊         | 57/687 [00:07<01:14,  8.40batch/s]
+Evaluating:   8%|▊         | 58/687 [00:07<01:14,  8.39batch/s]
+Evaluating:   9%|▊         | 59/687 [00:07<01:15,  8.32batch/s]
+Evaluating:   9%|▊         | 60/687 [00:07<01:15,  8.29batch/s]
+Evaluating:   9%|▉         | 61/687 [00:08<01:15,  8.29batch/s]
+Evaluating:   9%|▉         | 62/687 [00:08<01:15,  8.25batch/s]
+Evaluating:   9%|▉         | 63/687 [00:08<01:14,  8.38batch/s]
+Evaluating:   9%|▉         | 64/687 [00:08<01:14,  8.35batch/s]
+Evaluating:   9%|▉         | 65/687 [00:08<01:14,  8.36batch/s]
+Evaluating:  10%|▉         | 66/687 [00:08<01:14,  8.36batch/s]
+Evaluating:  10%|▉         | 67/687 [00:08<01:13,  8.41batch/s]
+Evaluating:  10%|▉         | 68/687 [00:08<01:14,  8.31batch/s]
+Evaluating:  10%|█         | 69/687 [00:08<01:12,  8.57batch/s]
+Evaluating:  10%|█         | 70/687 [00:09<01:11,  8.60batch/s]
+Evaluating:  10%|█         | 71/687 [00:09<01:11,  8.58batch/s]
+Evaluating:  10%|█         | 72/687 [00:09<01:12,  8.45batch/s]
+Evaluating:  11%|█         | 73/687 [00:09<01:13,  8.39batch/s]
+Evaluating:  11%|█         | 74/687 [00:09<01:13,  8.37batch/s]
+Evaluating:  11%|█         | 75/687 [00:09<01:12,  8.45batch/s]
+Evaluating:  11%|█         | 76/687 [00:09<01:12,  8.47batch/s]
+Evaluating:  11%|█         | 77/687 [00:09<01:13,  8.30batch/s]
+Evaluating:  11%|█▏        | 78/687 [00:10<01:13,  8.28batch/s]
+Evaluating:  11%|█▏        | 79/687 [00:10<01:13,  8.31batch/s]
+Evaluating:  12%|█▏        | 80/687 [00:10<01:12,  8.40batch/s]
+Evaluating:  12%|█▏        | 81/687 [00:10<01:17,  7.79batch/s]
+Evaluating:  12%|█▏        | 82/687 [00:10<01:17,  7.80batch/s]
+Evaluating:  12%|█▏        | 83/687 [00:10<01:16,  7.89batch/s]
+Evaluating:  12%|█▏        | 84/687 [00:10<01:15,  7.99batch/s]
+Evaluating:  12%|█▏        | 85/687 [00:10<01:15,  7.99batch/s]
+Evaluating:  13%|█▎        | 86/687 [00:11<01:15,  8.01batch/s]
+Evaluating:  13%|█▎        | 87/687 [00:11<01:14,  8.09batch/s]
+Evaluating:  13%|█▎        | 88/687 [00:11<01:14,  8.08batch/s]
+Evaluating:  13%|█▎        | 89/687 [00:11<01:13,  8.08batch/s]
+Evaluating:  13%|█▎        | 90/687 [00:11<01:13,  8.14batch/s]
+Evaluating:  13%|█▎        | 91/687 [00:11<01:12,  8.17batch/s]
+Evaluating:  13%|█▎        | 92/687 [00:11<01:12,  8.25batch/s]
+Evaluating:  14%|█▎        | 93/687 [00:11<01:11,  8.30batch/s]
+Evaluating:  14%|█▎        | 94/687 [00:12<01:10,  8.39batch/s]
+Evaluating:  14%|█▍        | 95/687 [00:12<01:10,  8.37batch/s]
+Evaluating:  14%|█▍        | 96/687 [00:12<01:10,  8.33batch/s]
+Evaluating:  14%|█▍        | 97/687 [00:12<01:10,  8.31batch/s]
+Evaluating:  14%|█▍        | 98/687 [00:12<01:11,  8.27batch/s]
+Evaluating:  14%|█▍        | 99/687 [00:12<01:10,  8.37batch/s]
+Evaluating:  15%|█▍        | 100/687 [00:12<01:09,  8.47batch/s]
+Evaluating:  15%|█▍        | 101/687 [00:12<01:09,  8.40batch/s]
+Evaluating:  15%|█▍        | 102/687 [00:12<01:10,  8.35batch/s]
+Evaluating:  15%|█▍        | 103/687 [00:13<01:10,  8.31batch/s]
+Evaluating:  15%|█▌        | 104/687 [00:13<01:09,  8.39batch/s]
+Evaluating:  15%|█▌        | 105/687 [00:13<01:09,  8.33batch/s]
+Evaluating:  15%|█▌        | 106/687 [00:13<01:08,  8.44batch/s]
+Evaluating:  16%|█▌        | 107/687 [00:13<01:09,  8.32batch/s]
+Evaluating:  16%|█▌        | 108/687 [00:13<01:11,  8.07batch/s]
+Evaluating:  16%|█▌        | 109/687 [00:13<01:09,  8.27batch/s]
+Evaluating:  16%|█▌        | 110/687 [00:13<01:09,  8.29batch/s]
+Evaluating:  16%|█▌        | 111/687 [00:14<01:09,  8.33batch/s]
+Evaluating:  16%|█▋        | 112/687 [00:14<01:08,  8.40batch/s]
+Evaluating:  16%|█▋        | 113/687 [00:14<01:09,  8.28batch/s]
+Evaluating:  17%|█▋        | 115/687 [00:14<01:05,  8.74batch/s]
+Evaluating:  17%|█▋        | 116/687 [00:14<01:05,  8.68batch/s]
+Evaluating:  17%|█▋        | 117/687 [00:14<01:06,  8.58batch/s]
+Evaluating:  17%|█▋        | 118/687 [00:14<01:06,  8.54batch/s]
+Evaluating:  17%|█▋        | 119/687 [00:14<01:06,  8.49batch/s]
+Evaluating:  17%|█▋        | 120/687 [00:15<01:05,  8.61batch/s]
+Evaluating:  18%|█▊        | 121/687 [00:15<01:06,  8.56batch/s]
+Evaluating:  18%|█▊        | 122/687 [00:15<01:09,  8.15batch/s]
+Evaluating:  18%|█▊        | 123/687 [00:15<01:08,  8.23batch/s]
+Evaluating:  18%|█▊        | 124/687 [00:15<01:10,  7.94batch/s]
+Evaluating:  18%|█▊        | 125/687 [00:15<01:17,  7.28batch/s]
+Evaluating:  18%|█▊        | 126/687 [00:15<01:13,  7.59batch/s]
+Evaluating:  18%|█▊        | 127/687 [00:16<01:09,  8.08batch/s]
+Evaluating:  19%|█▊        | 128/687 [00:16<01:08,  8.14batch/s]
+Evaluating:  19%|█▉        | 129/687 [00:16<01:08,  8.12batch/s]
+Evaluating:  19%|█▉        | 130/687 [00:16<01:06,  8.43batch/s]
+Evaluating:  19%|█▉        | 131/687 [00:16<01:06,  8.42batch/s]
+Evaluating:  19%|█▉        | 132/687 [00:16<01:06,  8.31batch/s]
+Evaluating:  19%|█▉        | 133/687 [00:16<01:07,  8.26batch/s]
+Evaluating:  20%|█▉        | 134/687 [00:16<01:07,  8.17batch/s]
+Evaluating:  20%|█▉        | 135/687 [00:16<01:06,  8.24batch/s]
+Evaluating:  20%|█▉        | 136/687 [00:17<01:07,  8.14batch/s]
+Evaluating:  20%|█▉        | 137/687 [00:17<01:06,  8.26batch/s]
+Evaluating:  20%|██        | 138/687 [00:17<01:07,  8.16batch/s]
+Evaluating:  20%|██        | 139/687 [00:17<01:06,  8.21batch/s]
+Evaluating:  20%|██        | 140/687 [00:17<01:06,  8.24batch/s]
+Evaluating:  21%|██        | 141/687 [00:17<01:06,  8.26batch/s]
+Evaluating:  21%|██        | 142/687 [00:17<01:06,  8.24batch/s]
+Evaluating:  21%|██        | 143/687 [00:17<01:05,  8.29batch/s]
+Evaluating:  21%|██        | 144/687 [00:18<01:06,  8.22batch/s]
+Evaluating:  21%|██        | 145/687 [00:18<01:08,  7.90batch/s]
+Evaluating:  21%|██▏       | 146/687 [00:18<01:07,  7.98batch/s]
+Evaluating:  21%|██▏       | 147/687 [00:18<01:06,  8.11batch/s]
+Evaluating:  22%|██▏       | 148/687 [00:18<01:05,  8.18batch/s]
+Evaluating:  22%|██▏       | 149/687 [00:18<01:05,  8.20batch/s]
+Evaluating:  22%|██▏       | 150/687 [00:18<01:05,  8.22batch/s]
+Evaluating:  22%|██▏       | 151/687 [00:18<01:05,  8.17batch/s]
+Evaluating:  22%|██▏       | 152/687 [00:19<01:06,  7.99batch/s]
+Evaluating:  22%|██▏       | 153/687 [00:19<01:06,  8.05batch/s]
+Evaluating:  22%|██▏       | 154/687 [00:19<01:05,  8.20batch/s]
+Evaluating:  23%|██▎       | 155/687 [00:19<01:04,  8.24batch/s]
+Evaluating:  23%|██▎       | 156/687 [00:19<01:03,  8.33batch/s]
+Evaluating:  23%|██▎       | 157/687 [00:19<01:03,  8.33batch/s]
+Evaluating:  23%|██▎       | 158/687 [00:19<01:03,  8.29batch/s]
+Evaluating:  23%|██▎       | 159/687 [00:19<01:03,  8.31batch/s]
+Evaluating:  23%|██▎       | 160/687 [00:20<01:03,  8.32batch/s]
+Evaluating:  23%|██▎       | 161/687 [00:20<01:03,  8.23batch/s]
+Evaluating:  24%|██▎       | 162/687 [00:20<01:01,  8.50batch/s]
+Evaluating:  24%|██▎       | 163/687 [00:20<01:02,  8.40batch/s]
+Evaluating:  24%|██▍       | 164/687 [00:20<01:02,  8.41batch/s]
+Evaluating:  24%|██▍       | 165/687 [00:20<01:02,  8.37batch/s]
+Evaluating:  24%|██▍       | 166/687 [00:20<01:02,  8.30batch/s]
+Evaluating:  24%|██▍       | 167/687 [00:20<01:02,  8.27batch/s]
+Evaluating:  24%|██▍       | 168/687 [00:20<01:01,  8.40batch/s]
+Evaluating:  25%|██▍       | 169/687 [00:21<01:02,  8.31batch/s]
+Evaluating:  25%|██▍       | 170/687 [00:21<01:02,  8.29batch/s]
+Evaluating:  25%|██▍       | 171/687 [00:21<01:02,  8.29batch/s]
+Evaluating:  25%|██▌       | 172/687 [00:21<01:01,  8.32batch/s]
+Evaluating:  25%|██▌       | 173/687 [00:21<01:01,  8.31batch/s]
+Evaluating:  25%|██▌       | 174/687 [00:21<01:01,  8.32batch/s]
+Evaluating:  25%|██▌       | 175/687 [00:21<01:02,  8.25batch/s]
+Evaluating:  26%|██▌       | 176/687 [00:21<01:01,  8.31batch/s]
+Evaluating:  26%|██▌       | 177/687 [00:22<01:00,  8.37batch/s]
+Evaluating:  26%|██▌       | 178/687 [00:22<01:02,  8.13batch/s]
+Evaluating:  26%|██▌       | 179/687 [00:22<00:59,  8.52batch/s]
+Evaluating:  26%|██▌       | 180/687 [00:22<01:07,  7.56batch/s]
+Evaluating:  26%|██▋       | 181/687 [00:22<01:06,  7.62batch/s]
+Evaluating:  26%|██▋       | 182/687 [00:22<01:07,  7.43batch/s]
+Evaluating:  27%|██▋       | 183/687 [00:22<01:07,  7.42batch/s]
+Evaluating:  27%|██▋       | 184/687 [00:22<01:04,  7.78batch/s]
+Evaluating:  27%|██▋       | 185/687 [00:23<01:02,  8.09batch/s]
+Evaluating:  27%|██▋       | 186/687 [00:23<01:00,  8.24batch/s]
+Evaluating:  27%|██▋       | 187/687 [00:23<00:59,  8.44batch/s]
+Evaluating:  27%|██▋       | 188/687 [00:23<00:59,  8.37batch/s]
+Evaluating:  28%|██▊       | 189/687 [00:23<00:58,  8.49batch/s]
+Evaluating:  28%|██▊       | 190/687 [00:23<00:59,  8.41batch/s]
+Evaluating:  28%|██▊       | 191/687 [00:23<00:57,  8.70batch/s]
+Evaluating:  28%|██▊       | 192/687 [00:23<00:58,  8.43batch/s]
+Evaluating:  28%|██▊       | 193/687 [00:24<00:59,  8.31batch/s]
+Evaluating:  28%|██▊       | 194/687 [00:24<00:59,  8.25batch/s]
+Evaluating:  28%|██▊       | 195/687 [00:24<00:59,  8.21batch/s]
+Evaluating:  29%|██▊       | 196/687 [00:24<01:04,  7.67batch/s]
+Evaluating:  29%|██▊       | 197/687 [00:24<01:00,  8.15batch/s]
+Evaluating:  29%|██▉       | 198/687 [00:24<01:01,  7.98batch/s]
+Evaluating:  29%|██▉       | 199/687 [00:24<01:02,  7.84batch/s]
+Evaluating:  29%|██▉       | 200/687 [00:24<01:01,  7.87batch/s]
+Evaluating:  29%|██▉       | 201/687 [00:25<01:00,  8.05batch/s]
+Evaluating:  29%|██▉       | 202/687 [00:25<01:02,  7.78batch/s]
+Evaluating:  30%|██▉       | 203/687 [00:25<01:01,  7.88batch/s]
+Evaluating:  30%|██▉       | 204/687 [00:25<01:02,  7.78batch/s]
+Evaluating:  30%|██▉       | 205/687 [00:25<00:58,  8.21batch/s]
+Evaluating:  30%|██▉       | 206/687 [00:25<01:00,  7.93batch/s]
+Evaluating:  30%|███       | 207/687 [00:25<00:56,  8.44batch/s]
+Evaluating:  30%|███       | 208/687 [00:25<00:59,  8.11batch/s]
+Evaluating:  30%|███       | 209/687 [00:26<01:00,  7.96batch/s]
+Evaluating:  31%|███       | 210/687 [00:26<00:59,  8.07batch/s]
+Evaluating:  31%|███       | 211/687 [00:26<00:58,  8.10batch/s]
+Evaluating:  31%|███       | 212/687 [00:26<00:58,  8.11batch/s]
+Evaluating:  31%|███       | 213/687 [00:26<00:58,  8.05batch/s]
+Evaluating:  31%|███       | 214/687 [00:26<00:58,  8.15batch/s]
+Evaluating:  31%|███▏      | 215/687 [00:26<00:57,  8.20batch/s]
+Evaluating:  31%|███▏      | 216/687 [00:26<00:56,  8.27batch/s]
+Evaluating:  32%|███▏      | 217/687 [00:27<00:56,  8.30batch/s]
+Evaluating:  32%|███▏      | 218/687 [00:27<00:55,  8.41batch/s]
+Evaluating:  32%|███▏      | 219/687 [00:27<00:56,  8.34batch/s]
+Evaluating:  32%|███▏      | 220/687 [00:27<00:56,  8.29batch/s]
+Evaluating:  32%|███▏      | 221/687 [00:27<00:56,  8.28batch/s]
+Evaluating:  32%|███▏      | 222/687 [00:27<00:55,  8.37batch/s]
+Evaluating:  32%|███▏      | 223/687 [00:27<00:55,  8.30batch/s]
+Evaluating:  33%|███▎      | 224/687 [00:27<00:55,  8.30batch/s]
+Evaluating:  33%|███▎      | 225/687 [00:27<00:56,  8.18batch/s]
+Evaluating:  33%|███▎      | 226/687 [00:28<00:55,  8.26batch/s]
+Evaluating:  33%|███▎      | 227/687 [00:28<00:55,  8.29batch/s]
+Evaluating:  33%|███▎      | 228/687 [00:28<00:55,  8.31batch/s]
+Evaluating:  33%|███▎      | 229/687 [00:28<00:55,  8.30batch/s]
+Evaluating:  33%|███▎      | 230/687 [00:28<00:54,  8.31batch/s]
+Evaluating:  34%|███▎      | 231/687 [00:28<00:54,  8.36batch/s]
+Evaluating:  34%|███▍      | 232/687 [00:28<00:54,  8.30batch/s]
+Evaluating:  34%|███▍      | 233/687 [00:28<00:55,  8.24batch/s]
+Evaluating:  34%|███▍      | 234/687 [00:29<00:55,  8.23batch/s]
+Evaluating:  34%|███▍      | 235/687 [00:29<00:54,  8.35batch/s]
+Evaluating:  34%|███▍      | 236/687 [00:29<00:54,  8.27batch/s]
+Evaluating:  34%|███▍      | 237/687 [00:29<00:54,  8.30batch/s]
+Evaluating:  35%|███▍      | 238/687 [00:29<00:54,  8.27batch/s]
+Evaluating:  35%|███▍      | 239/687 [00:29<00:54,  8.24batch/s]
+Evaluating:  35%|███▍      | 240/687 [00:29<00:54,  8.25batch/s]
+Evaluating:  35%|███▌      | 241/687 [00:29<00:53,  8.28batch/s]
+Evaluating:  35%|███▌      | 242/687 [00:30<00:53,  8.28batch/s]
+Evaluating:  35%|███▌      | 243/687 [00:30<00:53,  8.26batch/s]
+Evaluating:  36%|███▌      | 244/687 [00:30<00:52,  8.38batch/s]
+Evaluating:  36%|███▌      | 245/687 [00:30<00:52,  8.36batch/s]
+Evaluating:  36%|███▌      | 246/687 [00:30<00:53,  8.28batch/s]
+Evaluating:  36%|███▌      | 247/687 [00:30<00:53,  8.26batch/s]
+Evaluating:  36%|███▌      | 248/687 [00:30<00:52,  8.40batch/s]
+Evaluating:  36%|███▌      | 249/687 [00:30<00:51,  8.48batch/s]
+Evaluating:  36%|███▋      | 250/687 [00:30<00:52,  8.39batch/s]
+Evaluating:  37%|███▋      | 251/687 [00:31<00:51,  8.40batch/s]
+Evaluating:  37%|███▋      | 252/687 [00:31<00:52,  8.33batch/s]
+Evaluating:  37%|███▋      | 253/687 [00:31<00:52,  8.32batch/s]
+Evaluating:  37%|███▋      | 254/687 [00:31<00:51,  8.34batch/s]
+Evaluating:  37%|███▋      | 255/687 [00:31<00:52,  8.31batch/s]
+Evaluating:  37%|███▋      | 257/687 [00:31<00:44,  9.70batch/s]
+Evaluating:  38%|███▊      | 259/687 [00:31<00:37, 11.34batch/s]
+Evaluating:  38%|███▊      | 261/687 [00:32<00:35, 12.08batch/s]
+Evaluating:  38%|███▊      | 263/687 [00:32<00:34, 12.12batch/s]
+Evaluating:  39%|███▊      | 265/687 [00:32<00:33, 12.73batch/s]
+Evaluating:  39%|███▉      | 267/687 [00:32<00:31, 13.26batch/s]
+Evaluating:  39%|███▉      | 269/687 [00:32<00:29, 14.10batch/s]
+Evaluating:  39%|███▉      | 271/687 [00:32<00:28, 14.82batch/s]
+Evaluating:  40%|███▉      | 273/687 [00:32<00:26, 15.37batch/s]
+Evaluating:  40%|████      | 275/687 [00:32<00:26, 15.36batch/s]
+Evaluating:  40%|████      | 277/687 [00:33<00:26, 15.74batch/s]
+Evaluating:  41%|████      | 279/687 [00:33<00:26, 15.15batch/s]
+Evaluating:  41%|████      | 281/687 [00:33<00:26, 15.55batch/s]
+Evaluating:  41%|████      | 283/687 [00:33<00:25, 15.62batch/s]
+Evaluating:  41%|████▏     | 285/687 [00:33<00:25, 15.71batch/s]
+Evaluating:  42%|████▏     | 287/687 [00:33<00:27, 14.74batch/s]
+Evaluating:  42%|████▏     | 289/687 [00:33<00:33, 12.00batch/s]
+Evaluating:  42%|████▏     | 291/687 [00:34<00:36, 10.77batch/s]
+Evaluating:  43%|████▎     | 293/687 [00:34<00:39,  9.86batch/s]
+Evaluating:  43%|████▎     | 295/687 [00:34<00:41,  9.42batch/s]
+Evaluating:  43%|████▎     | 297/687 [00:34<00:43,  9.01batch/s]
+Evaluating:  43%|████▎     | 298/687 [00:35<00:43,  8.89batch/s]
+Evaluating:  44%|████▎     | 299/687 [00:35<00:43,  8.89batch/s]
+Evaluating:  44%|████▎     | 300/687 [00:35<00:44,  8.77batch/s]
+Evaluating:  44%|████▍     | 301/687 [00:35<00:44,  8.65batch/s]
+Evaluating:  44%|████▍     | 302/687 [00:35<00:44,  8.60batch/s]
+Evaluating:  44%|████▍     | 303/687 [00:35<00:44,  8.53batch/s]
+Evaluating:  44%|████▍     | 304/687 [00:35<00:44,  8.56batch/s]
+Evaluating:  44%|████▍     | 305/687 [00:35<00:44,  8.51batch/s]
+Evaluating:  45%|████▍     | 306/687 [00:36<00:44,  8.48batch/s]
+Evaluating:  45%|████▍     | 307/687 [00:36<00:44,  8.51batch/s]
+Evaluating:  45%|████▍     | 308/687 [00:36<00:44,  8.47batch/s]
+Evaluating:  45%|████▍     | 309/687 [00:36<00:44,  8.44batch/s]
+Evaluating:  45%|████▌     | 310/687 [00:36<00:44,  8.53batch/s]
+Evaluating:  45%|████▌     | 311/687 [00:36<00:44,  8.48batch/s]
+Evaluating:  45%|████▌     | 312/687 [00:36<00:44,  8.43batch/s]
+Evaluating:  46%|████▌     | 313/687 [00:36<00:44,  8.36batch/s]
+Evaluating:  46%|████▌     | 314/687 [00:36<00:44,  8.36batch/s]
+Evaluating:  46%|████▌     | 315/687 [00:37<00:43,  8.54batch/s]
+Evaluating:  46%|████▌     | 316/687 [00:37<00:44,  8.41batch/s]
+Evaluating:  46%|████▌     | 317/687 [00:37<00:44,  8.38batch/s]
+Evaluating:  46%|████▋     | 318/687 [00:37<00:43,  8.49batch/s]
+Evaluating:  46%|████▋     | 319/687 [00:37<00:43,  8.44batch/s]
+Evaluating:  47%|████▋     | 320/687 [00:37<00:42,  8.61batch/s]
+Evaluating:  47%|████▋     | 321/687 [00:37<00:42,  8.67batch/s]
+Evaluating:  47%|████▋     | 322/687 [00:37<00:42,  8.57batch/s]
+Evaluating:  47%|████▋     | 323/687 [00:38<00:43,  8.45batch/s]
+Evaluating:  47%|████▋     | 324/687 [00:38<00:43,  8.31batch/s]
+Evaluating:  47%|████▋     | 325/687 [00:38<00:43,  8.27batch/s]
+Evaluating:  47%|████▋     | 326/687 [00:38<00:43,  8.24batch/s]
+Evaluating:  48%|████▊     | 327/687 [00:38<00:43,  8.25batch/s]
+Evaluating:  48%|████▊     | 328/687 [00:38<00:42,  8.36batch/s]
+Evaluating:  48%|████▊     | 329/687 [00:38<00:43,  8.26batch/s]
+Evaluating:  48%|████▊     | 330/687 [00:38<00:42,  8.35batch/s]
+Evaluating:  48%|████▊     | 331/687 [00:38<00:42,  8.32batch/s]
+Evaluating:  48%|████▊     | 332/687 [00:39<00:42,  8.28batch/s]
+Evaluating:  48%|████▊     | 333/687 [00:39<00:44,  7.92batch/s]
+Evaluating:  49%|████▊     | 334/687 [00:39<00:42,  8.36batch/s]
+Evaluating:  49%|████▉     | 335/687 [00:39<00:41,  8.55batch/s]
+Evaluating:  49%|████▉     | 336/687 [00:39<00:39,  8.79batch/s]
+Evaluating:  49%|████▉     | 337/687 [00:39<00:40,  8.56batch/s]
+Evaluating:  49%|████▉     | 338/687 [00:39<00:40,  8.72batch/s]
+Evaluating:  49%|████▉     | 339/687 [00:39<00:41,  8.47batch/s]
+Evaluating:  49%|████▉     | 340/687 [00:40<00:39,  8.71batch/s]
+Evaluating:  50%|████▉     | 341/687 [00:40<00:41,  8.39batch/s]
+Evaluating:  50%|████▉     | 342/687 [00:40<00:40,  8.53batch/s]
+Evaluating:  50%|████▉     | 343/687 [00:40<00:40,  8.44batch/s]
+Evaluating:  50%|█████     | 344/687 [00:40<00:40,  8.38batch/s]
+Evaluating:  50%|█████     | 345/687 [00:40<00:40,  8.36batch/s]
+Evaluating:  50%|█████     | 346/687 [00:40<00:40,  8.33batch/s]
+Evaluating:  51%|█████     | 347/687 [00:40<00:41,  8.20batch/s]
+Evaluating:  51%|█████     | 348/687 [00:41<00:40,  8.30batch/s]
+Evaluating:  51%|█████     | 349/687 [00:41<00:40,  8.44batch/s]
+Evaluating:  51%|█████     | 350/687 [00:41<00:40,  8.32batch/s]
+Evaluating:  51%|█████     | 351/687 [00:41<00:40,  8.34batch/s]
+Evaluating:  51%|█████     | 352/687 [00:41<00:40,  8.33batch/s]
+Evaluating:  51%|█████▏    | 353/687 [00:41<00:39,  8.46batch/s]
+Evaluating:  52%|█████▏    | 354/687 [00:41<00:38,  8.57batch/s]
+Evaluating:  52%|█████▏    | 355/687 [00:41<00:39,  8.51batch/s]
+Evaluating:  52%|█████▏    | 356/687 [00:41<00:38,  8.66batch/s]
+Evaluating:  52%|█████▏    | 357/687 [00:42<00:38,  8.48batch/s]
+Evaluating:  52%|█████▏    | 358/687 [00:42<00:43,  7.53batch/s]
+Evaluating:  52%|█████▏    | 359/687 [00:42<00:41,  7.85batch/s]
+Evaluating:  52%|█████▏    | 360/687 [00:42<00:42,  7.62batch/s]
+Evaluating:  53%|█████▎    | 361/687 [00:42<00:41,  7.94batch/s]
+Evaluating:  53%|█████▎    | 362/687 [00:42<00:39,  8.16batch/s]
+Evaluating:  53%|█████▎    | 363/687 [00:42<00:40,  8.02batch/s]
+Evaluating:  53%|█████▎    | 364/687 [00:42<00:38,  8.38batch/s]
+Evaluating:  53%|█████▎    | 365/687 [00:43<00:39,  8.16batch/s]
+Evaluating:  53%|█████▎    | 366/687 [00:43<00:39,  8.19batch/s]
+Evaluating:  53%|█████▎    | 367/687 [00:43<00:39,  8.19batch/s]
+Evaluating:  54%|█████▎    | 368/687 [00:43<00:39,  8.13batch/s]
+Evaluating:  54%|█████▎    | 369/687 [00:43<00:39,  8.07batch/s]
+Evaluating:  54%|█████▍    | 370/687 [00:43<00:39,  8.08batch/s]
+Evaluating:  54%|█████▍    | 372/687 [00:43<00:36,  8.54batch/s]
+Evaluating:  54%|█████▍    | 373/687 [00:44<00:37,  8.46batch/s]
+Evaluating:  54%|█████▍    | 374/687 [00:44<00:37,  8.45batch/s]
+Evaluating:  55%|█████▍    | 375/687 [00:44<00:38,  8.03batch/s]
+Evaluating:  55%|█████▍    | 376/687 [00:44<00:38,  8.15batch/s]
+Evaluating:  55%|█████▍    | 377/687 [00:44<00:36,  8.43batch/s]
+Evaluating:  55%|█████▌    | 379/687 [00:44<00:31,  9.66batch/s]
+Evaluating:  55%|█████▌    | 381/687 [00:44<00:27, 11.18batch/s]
+Evaluating:  56%|█████▌    | 383/687 [00:44<00:24, 12.36batch/s]
+Evaluating:  56%|█████▌    | 385/687 [00:45<00:23, 12.73batch/s]
+Evaluating:  56%|█████▋    | 387/687 [00:45<00:23, 12.89batch/s]
+Evaluating:  57%|█████▋    | 389/687 [00:45<00:22, 13.00batch/s]
+Evaluating:  57%|█████▋    | 391/687 [00:45<00:23, 12.72batch/s]
+Evaluating:  57%|█████▋    | 393/687 [00:45<00:24, 12.18batch/s]
+Evaluating:  57%|█████▋    | 395/687 [00:46<00:30,  9.64batch/s]
+Evaluating:  58%|█████▊    | 397/687 [00:46<00:33,  8.77batch/s]
+Evaluating:  58%|█████▊    | 398/687 [00:46<00:34,  8.46batch/s]
+Evaluating:  58%|█████▊    | 399/687 [00:46<00:34,  8.29batch/s]
+Evaluating:  58%|█████▊    | 401/687 [00:46<00:31,  9.09batch/s]
+Evaluating:  59%|█████▊    | 403/687 [00:47<00:31,  9.12batch/s]
+Evaluating:  59%|█████▉    | 405/687 [00:47<00:31,  9.03batch/s]
+Evaluating:  59%|█████▉    | 406/687 [00:47<00:32,  8.70batch/s]
+Evaluating:  59%|█████▉    | 407/687 [00:47<00:32,  8.57batch/s]
+Evaluating:  59%|█████▉    | 408/687 [00:47<00:31,  8.81batch/s]
+Evaluating:  60%|█████▉    | 409/687 [00:47<00:32,  8.64batch/s]
+Evaluating:  60%|█████▉    | 410/687 [00:47<00:32,  8.53batch/s]
+Evaluating:  60%|█████▉    | 411/687 [00:47<00:34,  8.00batch/s]
+Evaluating:  60%|█████▉    | 412/687 [00:48<00:35,  7.85batch/s]
+Evaluating:  60%|██████    | 413/687 [00:48<00:34,  7.90batch/s]
+Evaluating:  60%|██████    | 414/687 [00:48<00:35,  7.80batch/s]
+Evaluating:  60%|██████    | 415/687 [00:48<00:33,  8.18batch/s]
+Evaluating:  61%|██████    | 416/687 [00:48<00:32,  8.35batch/s]
+Evaluating:  61%|██████    | 417/687 [00:48<00:34,  7.88batch/s]
+Evaluating:  61%|██████    | 418/687 [00:48<00:33,  7.96batch/s]
+Evaluating:  61%|██████    | 419/687 [00:48<00:34,  7.80batch/s]
+Evaluating:  61%|██████    | 420/687 [00:49<00:34,  7.74batch/s]
+Evaluating:  61%|██████▏   | 421/687 [00:49<00:35,  7.43batch/s]
+Evaluating:  61%|██████▏   | 422/687 [00:49<00:35,  7.54batch/s]
+Evaluating:  62%|██████▏   | 423/687 [00:49<00:34,  7.64batch/s]
+Evaluating:  62%|██████▏   | 424/687 [00:49<00:34,  7.56batch/s]
+Evaluating:  62%|██████▏   | 425/687 [00:49<00:36,  7.08batch/s]
+Evaluating:  62%|██████▏   | 426/687 [00:49<00:35,  7.31batch/s]
+Evaluating:  62%|██████▏   | 427/687 [00:50<00:34,  7.63batch/s]
+Evaluating:  62%|██████▏   | 428/687 [00:50<00:34,  7.62batch/s]
+Evaluating:  62%|██████▏   | 429/687 [00:50<00:33,  7.61batch/s]
+Evaluating:  63%|██████▎   | 430/687 [00:50<00:33,  7.70batch/s]
+Evaluating:  63%|██████▎   | 431/687 [00:50<00:33,  7.53batch/s]
+Evaluating:  63%|██████▎   | 432/687 [00:50<00:34,  7.44batch/s]
+Evaluating:  63%|██████▎   | 433/687 [00:50<00:33,  7.55batch/s]
+Evaluating:  63%|██████▎   | 435/687 [00:51<00:30,  8.18batch/s]
+Evaluating:  63%|██████▎   | 436/687 [00:51<00:32,  7.84batch/s]
+Evaluating:  64%|██████▎   | 437/687 [00:51<00:33,  7.44batch/s]
+Evaluating:  64%|██████▍   | 438/687 [00:51<00:32,  7.70batch/s]
+Evaluating:  64%|██████▍   | 439/687 [00:51<00:31,  7.95batch/s]
+Evaluating:  64%|██████▍   | 440/687 [00:51<00:30,  8.05batch/s]
+Evaluating:  64%|██████▍   | 441/687 [00:51<00:30,  8.05batch/s]
+Evaluating:  64%|██████▍   | 442/687 [00:51<00:31,  7.71batch/s]
+Evaluating:  64%|██████▍   | 443/687 [00:52<00:30,  8.03batch/s]
+Evaluating:  65%|██████▍   | 444/687 [00:52<00:31,  7.82batch/s]
+Evaluating:  65%|██████▍   | 445/687 [00:52<00:29,  8.14batch/s]
+Evaluating:  65%|██████▍   | 446/687 [00:52<00:28,  8.36batch/s]
+Evaluating:  65%|██████▌   | 447/687 [00:52<00:27,  8.74batch/s]
+Evaluating:  65%|██████▌   | 449/687 [00:52<00:27,  8.74batch/s]
+Evaluating:  66%|██████▌   | 450/687 [00:52<00:29,  8.15batch/s]
+Evaluating:  66%|██████▌   | 451/687 [00:53<00:28,  8.37batch/s]
+Evaluating:  66%|██████▌   | 452/687 [00:53<00:28,  8.28batch/s]
+Evaluating:  66%|██████▌   | 454/687 [00:53<00:26,  8.72batch/s]
+Evaluating:  66%|██████▌   | 455/687 [00:53<00:28,  8.24batch/s]
+Evaluating:  66%|██████▋   | 456/687 [00:53<00:27,  8.46batch/s]
+Evaluating:  67%|██████▋   | 457/687 [00:53<00:27,  8.31batch/s]
+Evaluating:  67%|██████▋   | 458/687 [00:53<00:26,  8.60batch/s]
+Evaluating:  67%|██████▋   | 459/687 [00:54<00:26,  8.45batch/s]
+Evaluating:  67%|██████▋   | 461/687 [00:54<00:25,  8.96batch/s]
+Evaluating:  67%|██████▋   | 462/687 [00:54<00:24,  9.02batch/s]
+Evaluating:  67%|██████▋   | 463/687 [00:54<00:24,  9.07batch/s]
+Evaluating:  68%|██████▊   | 465/687 [00:54<00:22,  9.80batch/s]
+Evaluating:  68%|██████▊   | 466/687 [00:54<00:22,  9.65batch/s]
+Evaluating:  68%|██████▊   | 467/687 [00:54<00:23,  9.45batch/s]
+Evaluating:  68%|██████▊   | 468/687 [00:54<00:23,  9.39batch/s]
+Evaluating:  68%|██████▊   | 469/687 [00:55<00:23,  9.26batch/s]
+Evaluating:  68%|██████▊   | 470/687 [00:55<00:24,  8.88batch/s]
+Evaluating:  69%|██████▊   | 471/687 [00:55<00:24,  8.82batch/s]
+Evaluating:  69%|██████▊   | 472/687 [00:55<00:24,  8.63batch/s]
+Evaluating:  69%|██████▉   | 473/687 [00:55<00:24,  8.63batch/s]
+Evaluating:  69%|██████▉   | 474/687 [00:55<00:25,  8.34batch/s]
+Evaluating:  69%|██████▉   | 475/687 [00:55<00:25,  8.38batch/s]
+Evaluating:  69%|██████▉   | 476/687 [00:55<00:25,  8.35batch/s]
+Evaluating:  69%|██████▉   | 477/687 [00:56<00:25,  8.14batch/s]
+Evaluating:  70%|██████▉   | 478/687 [00:56<00:25,  8.21batch/s]
+Evaluating:  70%|██████▉   | 479/687 [00:56<00:24,  8.38batch/s]
+Evaluating:  70%|██████▉   | 480/687 [00:56<00:24,  8.38batch/s]
+Evaluating:  70%|███████   | 481/687 [00:56<00:25,  8.05batch/s]
+Evaluating:  70%|███████   | 482/687 [00:56<00:25,  7.91batch/s]
+Evaluating:  70%|███████   | 483/687 [00:56<00:27,  7.53batch/s]
+Evaluating:  70%|███████   | 484/687 [00:56<00:26,  7.52batch/s]
+Evaluating:  71%|███████   | 485/687 [00:57<00:27,  7.41batch/s]
+Evaluating:  71%|███████   | 486/687 [00:57<00:26,  7.56batch/s]
+Evaluating:  71%|███████   | 487/687 [00:57<00:26,  7.45batch/s]
+Evaluating:  71%|███████   | 488/687 [00:57<00:27,  7.22batch/s]
+Evaluating:  71%|███████▏  | 490/687 [00:57<00:23,  8.22batch/s]
+Evaluating:  71%|███████▏  | 491/687 [00:57<00:24,  8.06batch/s]
+Evaluating:  72%|███████▏  | 492/687 [00:57<00:23,  8.15batch/s]
+Evaluating:  72%|███████▏  | 493/687 [00:58<00:25,  7.71batch/s]
+Evaluating:  72%|███████▏  | 494/687 [00:58<00:23,  8.14batch/s]
+Evaluating:  72%|███████▏  | 496/687 [00:58<00:23,  8.26batch/s]
+Evaluating:  72%|███████▏  | 497/687 [00:58<00:22,  8.37batch/s]
+Evaluating:  72%|███████▏  | 498/687 [00:58<00:22,  8.24batch/s]
+Evaluating:  73%|███████▎  | 499/687 [00:58<00:22,  8.41batch/s]
+Evaluating:  73%|███████▎  | 500/687 [00:58<00:23,  8.02batch/s]
+Evaluating:  73%|███████▎  | 501/687 [00:59<00:24,  7.71batch/s]
+Evaluating:  73%|███████▎  | 502/687 [00:59<00:24,  7.63batch/s]
+Evaluating:  73%|███████▎  | 503/687 [00:59<00:23,  7.92batch/s]
+Evaluating:  73%|███████▎  | 504/687 [00:59<00:22,  8.08batch/s]
+Evaluating:  74%|███████▎  | 506/687 [00:59<00:21,  8.54batch/s]
+Evaluating:  74%|███████▍  | 507/687 [00:59<00:20,  8.71batch/s]
+Evaluating:  74%|███████▍  | 509/687 [00:59<00:19,  9.00batch/s]
+Evaluating:  74%|███████▍  | 510/687 [01:00<00:19,  8.86batch/s]
+Evaluating:  74%|███████▍  | 511/687 [01:00<00:21,  8.26batch/s]
+Evaluating:  75%|███████▍  | 512/687 [01:00<00:20,  8.47batch/s]
+Evaluating:  75%|███████▍  | 513/687 [01:00<00:21,  8.23batch/s]
+Evaluating:  75%|███████▍  | 514/687 [01:00<00:21,  8.09batch/s]
+Evaluating:  75%|███████▍  | 515/687 [01:00<00:21,  7.97batch/s]
+Evaluating:  75%|███████▌  | 516/687 [01:00<00:22,  7.75batch/s]
+Evaluating:  75%|███████▌  | 517/687 [01:00<00:21,  7.91batch/s]
+Evaluating:  76%|███████▌  | 519/687 [01:01<00:19,  8.55batch/s]
+Evaluating:  76%|███████▌  | 520/687 [01:01<00:19,  8.41batch/s]
+Evaluating:  76%|███████▌  | 521/687 [01:01<00:19,  8.48batch/s]
+Evaluating:  76%|███████▌  | 522/687 [01:01<00:20,  8.08batch/s]
+Evaluating:  76%|███████▋  | 524/687 [01:01<00:18,  8.62batch/s]
+Evaluating:  76%|███████▋  | 525/687 [01:01<00:18,  8.89batch/s]
+Evaluating:  77%|███████▋  | 526/687 [01:01<00:17,  9.00batch/s]
+Evaluating:  77%|███████▋  | 527/687 [01:02<00:18,  8.55batch/s]
+Evaluating:  77%|███████▋  | 528/687 [01:02<00:18,  8.58batch/s]
+Evaluating:  77%|███████▋  | 529/687 [01:02<00:19,  8.25batch/s]
+Evaluating:  77%|███████▋  | 530/687 [01:02<00:19,  8.24batch/s]
+Evaluating:  77%|███████▋  | 531/687 [01:02<00:20,  7.61batch/s]
+Evaluating:  77%|███████▋  | 532/687 [01:02<00:19,  7.81batch/s]
+Evaluating:  78%|███████▊  | 533/687 [01:02<00:19,  7.91batch/s]
+Evaluating:  78%|███████▊  | 534/687 [01:03<00:19,  7.99batch/s]
+Evaluating:  78%|███████▊  | 535/687 [01:03<00:19,  7.71batch/s]
+Evaluating:  78%|███████▊  | 536/687 [01:03<00:18,  8.07batch/s]
+Evaluating:  78%|███████▊  | 538/687 [01:03<00:17,  8.76batch/s]
+Evaluating:  78%|███████▊  | 539/687 [01:03<00:17,  8.62batch/s]
+Evaluating:  79%|███████▊  | 540/687 [01:03<00:17,  8.36batch/s]
+Evaluating:  79%|███████▊  | 541/687 [01:03<00:17,  8.38batch/s]
+Evaluating:  79%|███████▉  | 542/687 [01:03<00:17,  8.37batch/s]
+Evaluating:  79%|███████▉  | 543/687 [01:04<00:17,  8.36batch/s]
+Evaluating:  79%|███████▉  | 544/687 [01:04<00:16,  8.49batch/s]
+Evaluating:  79%|███████▉  | 545/687 [01:04<00:16,  8.43batch/s]
+Evaluating:  79%|███████▉  | 546/687 [01:04<00:17,  8.23batch/s]
+Evaluating:  80%|███████▉  | 547/687 [01:04<00:17,  8.21batch/s]
+Evaluating:  80%|███████▉  | 548/687 [01:04<00:17,  8.09batch/s]
+Evaluating:  80%|███████▉  | 549/687 [01:04<00:17,  8.08batch/s]
+Evaluating:  80%|████████  | 550/687 [01:04<00:16,  8.11batch/s]
+Evaluating:  80%|████████  | 551/687 [01:05<00:16,  8.32batch/s]
+Evaluating:  80%|████████  | 552/687 [01:05<00:16,  8.34batch/s]
+Evaluating:  80%|████████  | 553/687 [01:05<00:16,  8.37batch/s]
+Evaluating:  81%|████████  | 554/687 [01:05<00:15,  8.49batch/s]
+Evaluating:  81%|████████  | 555/687 [01:05<00:15,  8.46batch/s]
+Evaluating:  81%|████████  | 556/687 [01:05<00:15,  8.42batch/s]
+Evaluating:  81%|████████  | 557/687 [01:05<00:15,  8.35batch/s]
+Evaluating:  81%|████████  | 558/687 [01:05<00:16,  7.95batch/s]
+Evaluating:  81%|████████▏ | 559/687 [01:06<00:16,  7.81batch/s]
+Evaluating:  82%|████████▏ | 560/687 [01:06<00:15,  7.97batch/s]
+Evaluating:  82%|████████▏ | 561/687 [01:06<00:15,  8.05batch/s]
+Evaluating:  82%|████████▏ | 562/687 [01:06<00:15,  8.11batch/s]
+Evaluating:  82%|████████▏ | 563/687 [01:06<00:15,  7.99batch/s]
+Evaluating:  82%|████████▏ | 564/687 [01:06<00:14,  8.24batch/s]
+Evaluating:  82%|████████▏ | 565/687 [01:06<00:15,  7.96batch/s]
+Evaluating:  82%|████████▏ | 566/687 [01:06<00:14,  8.41batch/s]
+Evaluating:  83%|████████▎ | 567/687 [01:07<00:14,  8.15batch/s]
+Evaluating:  83%|████████▎ | 568/687 [01:07<00:14,  8.31batch/s]
+Evaluating:  83%|████████▎ | 569/687 [01:07<00:13,  8.66batch/s]
+Evaluating:  83%|████████▎ | 570/687 [01:07<00:13,  8.74batch/s]
+Evaluating:  83%|████████▎ | 571/687 [01:07<00:14,  8.28batch/s]
+Evaluating:  83%|████████▎ | 572/687 [01:07<00:14,  8.05batch/s]
+Evaluating:  83%|████████▎ | 573/687 [01:07<00:13,  8.47batch/s]
+Evaluating:  84%|████████▎ | 574/687 [01:07<00:14,  8.02batch/s]
+Evaluating:  84%|████████▎ | 575/687 [01:07<00:13,  8.13batch/s]
+Evaluating:  84%|████████▍ | 576/687 [01:08<00:13,  8.08batch/s]
+Evaluating:  84%|████████▍ | 577/687 [01:08<00:13,  8.43batch/s]
+Evaluating:  84%|████████▍ | 578/687 [01:08<00:13,  8.16batch/s]
+Evaluating:  84%|████████▍ | 579/687 [01:08<00:13,  7.92batch/s]
+Evaluating:  84%|████████▍ | 580/687 [01:08<00:13,  7.84batch/s]
+Evaluating:  85%|████████▍ | 581/687 [01:08<00:13,  7.84batch/s]
+Evaluating:  85%|████████▍ | 582/687 [01:08<00:13,  7.74batch/s]
+Evaluating:  85%|████████▍ | 583/687 [01:09<00:13,  7.54batch/s]
+Evaluating:  85%|████████▌ | 584/687 [01:09<00:13,  7.38batch/s]
+Evaluating:  85%|████████▌ | 585/687 [01:09<00:13,  7.63batch/s]
+Evaluating:  85%|████████▌ | 586/687 [01:09<00:12,  7.80batch/s]
+Evaluating:  85%|████████▌ | 587/687 [01:09<00:13,  7.55batch/s]
+Evaluating:  86%|████████▌ | 588/687 [01:09<00:13,  7.56batch/s]
+Evaluating:  86%|████████▌ | 589/687 [01:09<00:12,  7.89batch/s]
+Evaluating:  86%|████████▌ | 590/687 [01:09<00:12,  7.69batch/s]
+Evaluating:  86%|████████▌ | 591/687 [01:10<00:12,  7.79batch/s]
+Evaluating:  86%|████████▌ | 592/687 [01:10<00:12,  7.74batch/s]
+Evaluating:  86%|████████▋ | 593/687 [01:10<00:11,  8.01batch/s]
+Evaluating:  86%|████████▋ | 594/687 [01:10<00:11,  8.08batch/s]
+Evaluating:  87%|████████▋ | 595/687 [01:10<00:10,  8.47batch/s]
+Evaluating:  87%|████████▋ | 596/687 [01:10<00:10,  8.62batch/s]
+Evaluating:  87%|████████▋ | 597/687 [01:10<00:10,  8.53batch/s]
+Evaluating:  87%|████████▋ | 598/687 [01:10<00:10,  8.41batch/s]
+Evaluating:  87%|████████▋ | 599/687 [01:10<00:10,  8.34batch/s]
+Evaluating:  87%|████████▋ | 600/687 [01:11<00:10,  8.70batch/s]
+Evaluating:  87%|████████▋ | 601/687 [01:11<00:09,  8.76batch/s]
+Evaluating:  88%|████████▊ | 602/687 [01:11<00:10,  8.33batch/s]
+Evaluating:  88%|████████▊ | 603/687 [01:11<00:09,  8.75batch/s]
+Evaluating:  88%|████████▊ | 604/687 [01:11<00:09,  8.57batch/s]
+Evaluating:  88%|████████▊ | 605/687 [01:11<00:09,  8.44batch/s]
+Evaluating:  88%|████████▊ | 606/687 [01:11<00:09,  8.27batch/s]
+Evaluating:  88%|████████▊ | 607/687 [01:11<00:09,  8.38batch/s]
+Evaluating:  89%|████████▊ | 608/687 [01:12<00:09,  8.25batch/s]
+Evaluating:  89%|████████▊ | 609/687 [01:12<00:09,  8.18batch/s]
+Evaluating:  89%|████████▉ | 610/687 [01:12<00:09,  8.15batch/s]
+Evaluating:  89%|████████▉ | 611/687 [01:12<00:09,  8.27batch/s]
+Evaluating:  89%|████████▉ | 612/687 [01:12<00:09,  8.22batch/s]
+Evaluating:  89%|████████▉ | 613/687 [01:12<00:08,  8.23batch/s]
+Evaluating:  89%|████████▉ | 614/687 [01:12<00:08,  8.16batch/s]
+Evaluating:  90%|████████▉ | 615/687 [01:12<00:08,  8.24batch/s]
+Evaluating:  90%|████████▉ | 616/687 [01:13<00:08,  8.29batch/s]
+Evaluating:  90%|████████▉ | 617/687 [01:13<00:08,  8.31batch/s]
+Evaluating:  90%|████████▉ | 618/687 [01:13<00:08,  8.32batch/s]
+Evaluating:  90%|█████████ | 619/687 [01:13<00:08,  8.30batch/s]
+Evaluating:  90%|█████████ | 620/687 [01:13<00:07,  8.38batch/s]
+Evaluating:  90%|█████████ | 621/687 [01:13<00:07,  8.34batch/s]
+Evaluating:  91%|█████████ | 622/687 [01:13<00:07,  8.29batch/s]
+Evaluating:  91%|█████████ | 623/687 [01:13<00:07,  8.37batch/s]
+Evaluating:  91%|█████████ | 624/687 [01:13<00:07,  8.31batch/s]
+Evaluating:  91%|█████████ | 625/687 [01:14<00:07,  8.26batch/s]
+Evaluating:  91%|█████████ | 626/687 [01:14<00:07,  8.23batch/s]
+Evaluating:  91%|█████████▏| 627/687 [01:14<00:07,  8.26batch/s]
+Evaluating:  91%|█████████▏| 628/687 [01:14<00:07,  8.28batch/s]
+Evaluating:  92%|█████████▏| 629/687 [01:14<00:07,  8.28batch/s]
+Evaluating:  92%|█████████▏| 630/687 [01:14<00:06,  8.29batch/s]
+Evaluating:  92%|█████████▏| 631/687 [01:14<00:06,  8.29batch/s]
+Evaluating:  92%|█████████▏| 632/687 [01:14<00:06,  8.30batch/s]
+Evaluating:  92%|█████████▏| 633/687 [01:15<00:06,  8.29batch/s]
+Evaluating:  92%|█████████▏| 634/687 [01:15<00:06,  8.23batch/s]
+Evaluating:  92%|█████████▏| 635/687 [01:15<00:06,  8.12batch/s]
+Evaluating:  93%|█████████▎| 636/687 [01:15<00:06,  8.13batch/s]
+Evaluating:  93%|█████████▎| 637/687 [01:15<00:06,  8.14batch/s]
+Evaluating:  93%|█████████▎| 638/687 [01:15<00:05,  8.22batch/s]
+Evaluating:  93%|█████████▎| 639/687 [01:15<00:05,  8.24batch/s]
+Evaluating:  93%|█████████▎| 640/687 [01:15<00:05,  8.43batch/s]
+Evaluating:  93%|█████████▎| 641/687 [01:16<00:05,  8.37batch/s]
+Evaluating:  93%|█████████▎| 642/687 [01:16<00:05,  8.23batch/s]
+Evaluating:  94%|█████████▎| 643/687 [01:16<00:05,  8.16batch/s]
+Evaluating:  94%|█████████▎| 644/687 [01:16<00:05,  8.18batch/s]
+Evaluating:  94%|█████████▍| 645/687 [01:16<00:05,  8.23batch/s]
+Evaluating:  94%|█████████▍| 646/687 [01:16<00:04,  8.27batch/s]
+Evaluating:  94%|█████████▍| 647/687 [01:16<00:04,  8.32batch/s]
+Evaluating:  94%|█████████▍| 648/687 [01:16<00:04,  8.33batch/s]
+Evaluating:  94%|█████████▍| 649/687 [01:17<00:04,  8.31batch/s]
+Evaluating:  95%|█████████▍| 650/687 [01:17<00:04,  8.41batch/s]
+Evaluating:  95%|█████████▍| 651/687 [01:17<00:04,  8.29batch/s]
+Evaluating:  95%|█████████▍| 652/687 [01:17<00:04,  8.23batch/s]
+Evaluating:  95%|█████████▌| 653/687 [01:17<00:04,  8.25batch/s]
+Evaluating:  95%|█████████▌| 654/687 [01:17<00:03,  8.36batch/s]
+Evaluating:  95%|█████████▌| 655/687 [01:17<00:03,  8.33batch/s]
+Evaluating:  95%|█████████▌| 656/687 [01:17<00:03,  8.34batch/s]
+Evaluating:  96%|█████████▌| 657/687 [01:17<00:03,  8.32batch/s]
+Evaluating:  96%|█████████▌| 658/687 [01:18<00:03,  8.33batch/s]
+Evaluating:  96%|█████████▌| 659/687 [01:18<00:03,  8.27batch/s]
+Evaluating:  96%|█████████▌| 660/687 [01:18<00:03,  8.30batch/s]
+Evaluating:  96%|█████████▌| 661/687 [01:18<00:03,  8.33batch/s]
+Evaluating:  96%|█████████▋| 662/687 [01:18<00:03,  8.32batch/s]
+Evaluating:  97%|█████████▋| 663/687 [01:18<00:02,  8.42batch/s]
+Evaluating:  97%|█████████▋| 664/687 [01:18<00:02,  8.48batch/s]
+Evaluating:  97%|█████████▋| 665/687 [01:18<00:02,  8.41batch/s]
+Evaluating:  97%|█████████▋| 666/687 [01:19<00:02,  8.40batch/s]
+Evaluating:  97%|█████████▋| 667/687 [01:19<00:02,  8.37batch/s]
+Evaluating:  97%|█████████▋| 668/687 [01:19<00:02,  8.40batch/s]
+Evaluating:  97%|█████████▋| 669/687 [01:19<00:02,  8.39batch/s]
+Evaluating:  98%|█████████▊| 670/687 [01:19<00:02,  8.33batch/s]
+Evaluating:  98%|█████████▊| 671/687 [01:19<00:01,  8.27batch/s]
+Evaluating:  98%|█████████▊| 672/687 [01:19<00:01,  8.33batch/s]
+Evaluating:  98%|█████████▊| 673/687 [01:19<00:01,  8.28batch/s]
+Evaluating:  98%|█████████▊| 674/687 [01:20<00:01,  8.34batch/s]
+Evaluating:  98%|█████████▊| 675/687 [01:20<00:01,  8.35batch/s]
+Evaluating:  98%|█████████▊| 676/687 [01:20<00:01,  8.33batch/s]
+Evaluating:  99%|█████████▊| 677/687 [01:20<00:01,  8.36batch/s]
+Evaluating:  99%|█████████▊| 678/687 [01:20<00:01,  8.52batch/s]
+Evaluating:  99%|█████████▉| 679/687 [01:20<00:00,  8.54batch/s]
+Evaluating:  99%|█████████▉| 680/687 [01:20<00:00,  8.48batch/s]
+Evaluating:  99%|█████████▉| 681/687 [01:20<00:00,  8.40batch/s]
+Evaluating:  99%|█████████▉| 682/687 [01:20<00:00,  8.39batch/s]
+Evaluating:  99%|█████████▉| 683/687 [01:21<00:00,  8.35batch/s]
+Evaluating: 100%|█████████▉| 684/687 [01:21<00:00,  8.37batch/s]
+Evaluating: 100%|█████████▉| 685/687 [01:21<00:00,  8.34batch/s]
+Evaluating: 100%|█████████▉| 686/687 [01:21<00:00,  8.25batch/s]
+Evaluating: 100%|██████████| 687/687 [01:21<00:00,  8.31batch/s]
+Evaluating: 100%|██████████| 687/687 [01:21<00:00,  8.42batch/s]
+Top-1 Accuracy: 0.9930391
+Top-5 Accuracy: 0.9991811
+Top-1 Error Rate: 0.0069609
+Top-5 Error Rate: 0.0008189
+Parameter numbers: 21933924
+GPU INFO.....
+|===========================================================================|
+|                  PyTorch CUDA memory summary, device ID 0                 |
+|---------------------------------------------------------------------------|
+|            CUDA OOMs: 0            |        cudaMalloc retries: 0         |
+|===========================================================================|
+|        Metric         | Cur Usage  | Peak Usage | Tot Alloc  | Tot Freed  |
+|---------------------------------------------------------------------------|
+| Allocated memory      |  96336 KiB | 375519 KiB |   2581 GiB |   2581 GiB |
+|       from large pool |  89088 KiB | 368192 KiB |   2557 GiB |   2557 GiB |
+|       from small pool |   7248 KiB |  13386 KiB |     23 GiB |     23 GiB |
+|---------------------------------------------------------------------------|
+| Active memory         |  96336 KiB | 375519 KiB |   2581 GiB |   2581 GiB |
+|       from large pool |  89088 KiB | 368192 KiB |   2557 GiB |   2557 GiB |
+|       from small pool |   7248 KiB |  13386 KiB |     23 GiB |     23 GiB |
+|---------------------------------------------------------------------------|
+| Requested memory      |  94620 KiB | 373803 KiB |   2581 GiB |   2580 GiB |
+|       from large pool |  87408 KiB | 366512 KiB |   2557 GiB |   2557 GiB |
+|       from small pool |   7212 KiB |  13316 KiB |     23 GiB |     23 GiB |
+|---------------------------------------------------------------------------|
+| GPU reserved memory   | 563200 KiB | 563200 KiB | 563200 KiB |      0 B   |
+|       from large pool | 548864 KiB | 548864 KiB | 548864 KiB |      0 B   |
+|       from small pool |  14336 KiB |  14336 KiB |  14336 KiB |      0 B   |
+|---------------------------------------------------------------------------|
+| Non-releasable memory |  14255 KiB | 144737 KiB |   2272 GiB |   2272 GiB |
+|       from large pool |  13312 KiB | 143808 KiB |   2248 GiB |   2248 GiB |
+|       from small pool |    943 KiB |   7572 KiB |     23 GiB |     23 GiB |
+|---------------------------------------------------------------------------|
+| Allocations           |     324    |     636    |  178570    |  178246    |
+|       from large pool |      20    |      38    |  102402    |  102382    |
+|       from small pool |     304    |     598    |   76168    |   75864    |
+|---------------------------------------------------------------------------|
+| Active allocs         |     324    |     636    |  178570    |  178246    |
+|       from large pool |      20    |      38    |  102402    |  102382    |
+|       from small pool |     304    |     598    |   76168    |   75864    |
+|---------------------------------------------------------------------------|
+| GPU reserved segments |      20    |      20    |      20    |       0    |
+|       from large pool |      13    |      13    |      13    |       0    |
+|       from small pool |       7    |       7    |       7    |       0    |
+|---------------------------------------------------------------------------|
+| Non-releasable allocs |       6    |      14    |  102755    |  102749    |
+|       from large pool |       2    |       7    |   69413    |   69411    |
+|       from small pool |       4    |       7    |   33342    |   33338    |
+|---------------------------------------------------------------------------|
+| Oversize allocations  |       0    |       0    |       0    |       0    |
+|---------------------------------------------------------------------------|
+| Oversize GPU segments |       0    |       0    |       0    |       0    |
+|===========================================================================|
