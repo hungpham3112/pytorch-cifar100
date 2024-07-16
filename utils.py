@@ -377,6 +377,6 @@ def best_acc_weights(weights_folder):
         return ""
 
     best_files = sorted(
-        best_files, key=lambda w: int(re.search(regex_str, w).groups()[1])
-    )
+    best_files, key=lambda w: int(re.search(regex_str, w).groups()[1])
+)
     return best_files[-1]
