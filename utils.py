@@ -15,6 +15,7 @@ from torch.optim.lr_scheduler import _LRScheduler
 import torchvision
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
+from dataset import CustomImageDataset
 
 
 def get_network(args):
@@ -211,14 +212,6 @@ def get_network(args):
     return net
 
 
-class CustomImageFolder(datasets.ImageFolder):
-    def find_classes(self, directory):
-        classes = [d.name for d in os.scandir(directory) if d.is_dir()]
-        classes.sort(key=lambda x: int(x))  # Sort classes numerically
-        class_to_idx = {cls_name: i for i, cls_name in enumerate(classes)}
-        return classes, class_to_idx
-
-
 def get_training_dataloader(
     data_dir,
     mean,
@@ -231,11 +224,10 @@ def get_training_dataloader(
     """Return training dataloader."""
     transform_train = transforms.Compose(
         [
-            transforms.RandomCrop(32, padding=4),
+            transforms.RandomCrop(64, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.RandomRotation(15),
-            transforms.ToTensor(),
-            transforms.Normalize(mean, std),
+            transforms.Normalize(mean=[mean], std=[std]),  # Normalize the tensor
         ]
     )
 
@@ -245,41 +237,11 @@ def get_training_dataloader(
         )
     elif dataset.lower() == "cangjie":
         train_dir = os.path.join(data_dir, "etl_952_singlechar_size_64/952_train")
-        train_dataset = CustomImageFolder(root=train_dir, transform=transform_train)
+        train_dataset = CustomImageDataset(train_dir, transform=transform_train)
 
-    train_loader = DataLoader(
+    return DataLoader(
         train_dataset, shuffle=shuffle, num_workers=num_workers, batch_size=batch_size
     )
-    return train_loader
-
-
-def get_test_dataloader(
-    data_dir,
-    mean,
-    std,
-    batch_size=16,
-    num_workers=2,
-    shuffle=True,
-    dataset: str = "cifar",
-):
-    """Return test dataloader."""
-
-    transform_test = transforms.Compose(
-        [transforms.ToTensor(), transforms.Normalize(mean, std)]
-    )
-
-    if dataset.lower() == "cifar":
-        test_dataset = torchvision.datasets.CIFAR100(
-            root=data_dir, train=False, download=True, transform=transform_test
-        )
-    elif dataset.lower() == "cangjie":
-        test_dir = os.path.join(data_dir, "etl_952_singlechar_size_64/952_test")
-        test_dataset = CustomImageFolder(root=test_dir, transform=transform_test)
-
-    test_loader = DataLoader(
-        test_dataset, shuffle=shuffle, num_workers=num_workers, batch_size=batch_size
-    )
-    return test_loader
 
 
 def get_val_dataloader(
@@ -292,9 +254,7 @@ def get_val_dataloader(
     dataset: str = "cifar",
 ):
     """Return validation dataloader."""
-    transform_val = transforms.Compose(
-        [transforms.ToTensor(), transforms.Normalize(mean, std)]
-    )
+    transform_val = transforms.Compose([transforms.Normalize(mean, std)])
 
     if dataset.lower() == "cifar":
         val_dataset = torchvision.datasets.CIFAR100(
@@ -302,7 +262,7 @@ def get_val_dataloader(
         )
     elif dataset.lower() == "cangjie":
         val_dir = os.path.join(data_dir, "etl_952_singlechar_size_64/952_val")
-        val_dataset = CustomImageFolder(root=val_dir, transform=transform_val)
+        val_dataset = CustomImageDataset(val_dir, transform=transform_val)
 
     val_loader = DataLoader(
         val_dataset, shuffle=shuffle, num_workers=num_workers, batch_size=batch_size
