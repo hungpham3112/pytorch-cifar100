@@ -11,7 +11,8 @@ $ pip install -r requirements.txt
 ## Usage
 
 ### 1. Download Dataset
-Download the canjie dataset from [here](https://drive.google.com/file/d/1AIi8286VY4QGJ8i2SY1sIQc7OeUdJqwX/view) and extract to `./data` directory
+- Download the canjie dataset from [here](https://drive.google.com/file/d/1AIi8286VY4QGJ8i2SY1sIQc7OeUdJqwX/view) and extract to `./data` directory
+- Download the pre-trained model and put into `./checkpoint` from [here](https://drive.google.com/drive/folders/18Wpo_XCJRhWWzdR5Q0_rCOToEJ5M17v0?usp=sharing) and extract to `./data` directory
 
 ### 2. Training model
 
